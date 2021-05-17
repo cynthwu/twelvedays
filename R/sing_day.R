@@ -35,7 +35,7 @@ sing_day <- function(dataset, line, phrase_col){
   combined <- paste0(combined, sep = "\n", collapse = " ")
 
   combined <- combined %>%
-    str_remove(",\n$")
+    str_remove(",$")
 
   cat(combined)
 
