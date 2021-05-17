@@ -13,17 +13,30 @@
 #' @import glue
 #' @import dplyr
 #' @import purrr
+#' @import english
 #'
 #' @export
-
-
 
 make_phrase <- function(num, num_word, item, verb, adjective, location){
 
   verb <- str_replace_na(verb, "")
+  adjective <- str_replace_na(adjective, "")
+  location <- str_replace_na(location, "")
 
-  #????
+  num_word <- english::english(num)
 
+  if (num == 1) {
+    num_word <- "a"
+  } else {
+    item <- pluralize_gift(item)
+  }
+
+  sentence <- paste(num_word, adjective, item, verb, location)
+
+  sentence <- sentence %>%
+    str_replace_all("\\s+", " ") %>%
+    str_trim("both")
+
+  return(sentence)
 
 }
-
