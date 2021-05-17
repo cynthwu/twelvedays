@@ -40,3 +40,13 @@ make_phrase <- function(num, num_word, item, verb, adjective, location){
   return(sentence)
 
 }
+
+# Unit Test
+test_that("the num arguement in the make_phrase function should be numeric", {
+  expect_error(make_phrase(num = "hello", 
+                           num_word = "six", 
+                           item = "ballon", 
+                           verb = "flying", 
+                           adjective = "green", 
+                           location = "up in the sky"))
+})
