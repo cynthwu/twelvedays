@@ -14,4 +14,29 @@
 #' @import english
 #'
 #' @export
+sing_day <- function(dataset, line, phrase_col){
 
+  word_number <- english::ordinal(line)
+
+  day_line <- paste("On the", word_number, "day of Christmas, my true love sent to me:")
+
+  phrases <- dataset %>% pull({{phrase_col}})
+
+  if (line > 1) {
+    phrases[1] <- paste0("and ", phrases[1], ".")
+  } else {
+    phrases[1] <- paste0(phrases[1], ".")
+  }
+
+  gift_line <- map_chr(line:1, ~paste0(phrases[.x], sep = ","))
+
+  combined <- c(day_line, gift_line)
+
+  combined <- paste0(combined, sep = "\n", collapse = " ")
+
+  combined <- combined %>%
+    str_remove(",\n$")
+
+  cat(combined)
+
+}
