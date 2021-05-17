@@ -22,3 +22,8 @@ pluralize_gift <- function(gift){
   }
 
 }
+
+# Unit Test
+test_that("the pluralize_gift function should only have one argument", {
+  expect_error(pluralize_gift("bunny", "carrot"))
+})
