@@ -19,5 +19,3 @@ test_that("the num arguement in the make_phrase function should be numeric", {
 test_that("all of the arguments in the sing_line function are required, not optional", {
   expect_error(sing_day(line = 5, phrase_col = Full.Phrase))
 })
-
-# Note: Sorry I didn't know we were supposed to put the challenge in this file. I inputted the unit tests in each function's R document instead. 
