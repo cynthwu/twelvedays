@@ -40,8 +40,3 @@ sing_day <- function(dataset, line, phrase_col){
   cat(combined)
 
 }
-
-# Unit Test
-test_that("all of the arguments in the sing_line function are required, not optional", {
-  expect_error(sing_day(line = 5, phrase_col = Full.Phrase))
-})
